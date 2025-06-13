@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className = "", ...props } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`header-link no-underline text-xl md:self-center transition-all duration-200 ${className}`}
+  data-href={href}
+  {...props}
+>
+  <slot />
+</a>
+
+<style>
+  .header-link {
+    color: #4c5967;
+    font-weight: 500;
+  }
+
+  .header-link.active {
+    color: #2563eb !important;
+    /* font-weight: 600 !important; */
+  }
+
+  .header-link:hover {
+    color: #2563eb !important;
+    /* font-weight: 600 !important; */
+  }
+</style>

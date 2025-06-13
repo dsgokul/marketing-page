@@ -1,0 +1,22 @@
+---
+import Image from "astro/components/Image.astro";
+import { HERO_ABOUT, HERO } from "../consts";
+---
+
+<section class="relative h-[35rem] pt-20 mb-14 md:mb-24">
+  <Image
+    src={HERO_ABOUT}
+    alt="Hero Image"
+    class="w-full h-full object-cover [object-position:10%_38%]"
+  />
+
+  <div class="absolute inset-0 bg-[#002166] opacity-60"></div>
+
+  <div
+    class="absolute inset-0 z-10 flex flex-col justify-center items-center text-center pt-16"
+  >
+    <div class="md:wrapper">
+      <span class="text-5xl text-white font-semibold">About Us</span>
+    </div>
+  </div>
+</section>

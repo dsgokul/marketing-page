@@ -1,0 +1,528 @@
+---
+import HeroCapabilityConsulting from "@/components/HeroCapabilityConsulting.astro";
+import Layout from "../layouts/Layout.astro";
+
+import {
+  STEP1_CARD1,
+  STEP1_CARD2,
+  STEP1_CARD3,
+  STEP2_IMG,
+  GRADUATIONCAP,
+  LEARNING,
+  GAME,
+  STEP3_CARD1,
+  STEP3_CARD2,
+  STEP3_CARD3,
+  JOBSEARCH,
+  USERROLES,
+  ADSCLICK,
+  AUTOMATION,
+  CHATBUBBLE,
+  LOGOMARK,
+  HERO_CAPABILITY_CONSULTING,
+} from "@/consts";
+import Step3Card from "@/components/Step3Card.astro";
+import ContactUsMiniCards from "@/components/ContactUsMiniCards.astro";
+import ValueCreation from "@/components/ValueCreation.astro";
+import { Image } from "astro:assets";
+
+const step3CardContents = [
+  {
+    title: "Connecting Students with SDV Internships",
+    content:
+      "We connect skilled students with real-world SDV internships, giving them early industry experience. This helps companies find fresh talent that meets their evolving internship needs in software-defined vehicle engineering.",
+    image: STEP3_CARD1.src,
+  },
+  {
+    title: "Comprehensive Profiles Showcasing Verified Skills",
+    content:
+      "We connect skilled students with real-world SDV internships, giving them early industry experience. This helps companies find fresh talent that meets their evolving internship needs in software-defined vehicle engineering.",
+    image: STEP3_CARD2.src,
+  },
+  {
+    title: "Helping Recruiters Find the Perfect Student Match",
+    content:
+      "We connect skilled students with real-world SDV internships, giving them early industry experience. This helps companies find fresh talent that meets their evolving internship needs in software-defined vehicle engineering.",
+    image: STEP3_CARD3.src,
+  },
+];
+---
+
+<Layout>
+  <HeroCapabilityConsulting
+    content="Building SDV-Ready Talent from Academia for a Secure Future"
+    image={HERO_CAPABILITY_CONSULTING}
+  />
+
+  <section
+    class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-44 bg-white mb-24 lg:mb-36"
+  >
+    <div class="flex flex-col gap-4">
+      <span class="text-blue-600 text-base sm:text-lg md:text-xl font-medium">
+        What We Offer
+      </span>
+
+      <span
+        class="text-[#002166] text-5xl sm:text-5xl md:text-2xl lg:text-4xl xl:text-6xl font-semibold max-w-6xl text-left"
+      >
+        An Integrated platform that transforms academic talent into an
+        industry-ready workforce in just
+        <span class="text-blue-600">3 simple steps.</span>
+      </span>
+    </div>
+  </section>
+
+  <section
+    class="h-full px-4 sm:px-8 md:px-16 lg:px-28 xl:px-[14rem] bg-white mb-16"
+  >
+    <!-- Sticky Title Block -->
+    <div class="relative">
+      <div class="sticky top-[5rem] bg-white z-20 py-0 pt-2 md:py-4 px-1 mb-8">
+        <span class="text-blue-600 text-xl">Step 1</span>
+        <h2
+          class="text-[#002166] text-2xl sm:text-xl md:text-5xl font-semibold max-w-5xl"
+        >
+          Pre-Learning Experience for Industry Readiness
+        </h2>
+      </div>
+
+      <div class="sticky top-[10rem] space-y-[2rem]">
+        <!-- CARD 1 -->
+        <div
+          class="bg-[#1A49AD] w-full rounded-2xl p-6 md:p-8 md:flex justify-between gap-8 sticky min-h-[30rem] md:min-h-max top-[13rem] md:top-[15rem] z-[1] overflow-hidden"
+        >
+          <!-- Left Text Block -->
+          <div class="max-w-2xl z-10 flex flex-col justify-start p-0 md:p-8">
+            <h3
+              class="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold text-white max-w-[23rem] mb-4"
+            >
+              Pre learning workflow to set the context
+            </h3>
+            <p
+              class="mt-2 text-white text-md sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-lg max-w-[27rem] leading-relaxed"
+            >
+              Our pre-learning workflow introduces students to the Software
+              Defined Vehicle (SDV) industry, highlighting key skills and
+              expectations. This early insight boosts engagement and helps
+              bridge the gap between academics and real-world industry needs.
+            </p>
+          </div>
+
+          <!-- Right Image Section -->
+          <div
+            class="relative w-full md:w-[50%] flex justify-end items-center mt-6 md:mt-0"
+          >
+            <div class="w-full max-w-[45rem] aspect-video">
+              <Image
+                src={STEP1_CARD1}
+                alt="Workflow UI Preview"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="bg-[#1563FF] w-full rounded-2xl p-6 md:p-8 md:flex justify-between gap-8 sticky min-h-[30rem] md:min-h-max top-[15rem] md:top-[17rem] z-[2] overflow-hidden"
+        >
+          <div class="max-w-2xl z-10 flex flex-col justify-start p-0 md:p-8">
+            <h3
+              class="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold text-white max-w-[23rem] mb-4"
+            >
+              Data-Driven Insights on SDV Roles & Skills
+            </h3>
+            <p
+              class="mt-2 text-white text-md sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-lg max-w-[27rem] leading-relaxed"
+            >
+              We provide clear, data-backed insights into in-demand roles and
+              skills in Software Defined Vehicle (SDV) product engineering. This
+              helps students focus on the most valuable technical and soft
+              skills for future-ready careers.
+            </p>
+          </div>
+          <div
+            class="relative w-full md:w-[50%] flex justify-end items-center mt-6 md:mt-0"
+          >
+            <div class="w-full max-w-[45rem] aspect-video">
+              <Image
+                src={STEP1_CARD2}
+                alt="Card 2 Image"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="bg-[#013399] w-full rounded-2xl p-6 md:p-8 md:flex justify-between gap-8 sticky min-h-[30rem] md:min-h-max top-[17rem] md:top-[19rem] z-[3] overflow-hidden"
+        >
+          <div class="max-w-2xl z-10 flex flex-col justify-start p-0 md:p-8">
+            <h3
+              class="text-lg sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-semibold text-white max-w-[23rem] mb-4"
+            >
+              Empowering Smart SDV Career Choices
+            </h3>
+            <p
+              class="mt-2 text-white text-md sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-lg max-w-[27rem] leading-relaxed"
+            >
+              We use data-driven insights to help students choose the right
+              Software Defined Vehicle (SDV) career paths with confidence.
+            </p>
+          </div>
+          <div
+            class="relative w-full md:w-[50%] flex justify-end items-center mt-6 md:mt-0"
+          >
+            <div class="w-full max-w-[45rem] aspect-video">
+              <Image
+                src={STEP1_CARD3}
+                alt="Card 3 Image"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-full sticky min-h-[5rem] top-[19rem] z-[1] overflow-hidden"
+        >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-44 bg-[#f6f9ff] py-12 h-full mb-24"
+  >
+    <div class="flex flex-col gap-2 mb-6">
+      <span class="text-blue-600 text-xl">Step 2</span>
+      <h2
+        class="text-[#002166] text-2xl sm:text-xl md:text-5xl font-semibold max-w-5xl mb-6"
+      >
+        Blended Co-Curricular Learning
+      </h2>
+    </div>
+
+    <!-- Begin Sticky Scroll Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
+      <!-- Left Content -->
+      <div class="flex flex-col gap-12 text-[#1563FF] max-w-md">
+        <!-- Card 1 -->
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col">
+            <Image src={GRADUATIONCAP} alt="Graduation Cap" class="w-8 h-8" />
+            <h3 class="text-[#1563FF] font-semibold text-2xl mb-2">
+              Role-Based Co-Curricular Learning Journeys
+            </h3>
+          </div>
+          <div>
+            <p class="text-md leading-relaxed text-[#4c5967]">
+              Our role-based learning journeys offer targeted co-curricular
+              content and projects designed to build the exact skills needed for
+              high-demand SDV product engineering roles. This helps students
+              smoothly transition into and succeed in industry careers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col">
+            <Image src={LEARNING} alt="Graduation Cap" class="w-8 h-8" />
+            <h3 class="text-[#1563FF] font-semibold text-2xl mb-2">
+              Flexible Learning Aligned with Academics
+            </h3>
+          </div>
+          <div>
+            <p class="text-md leading-relaxed text-[#4c5967]">
+              Our flexible co-curricular learning fits alongside your academic
+              schedule, letting you build industry skills at your own pace
+              without stress. This helps you gain practical experience while
+              keeping up with your studies.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col">
+            <Image src={GAME} alt="Graduation Cap" class="w-8 h-8" />
+            <h3 class="text-[#1563FF] font-semibold text-2xl mb-2">
+              Personalized & Gamified Learning with Integrated Virtual Labs
+            </h3>
+          </div>
+          <div>
+            <p class="text-md leading-relaxed text-[#4c5967]">
+              Our personalized, gamified learning keeps students motivated while
+              they master advanced tools through virtual labs. This hands-on
+              approach builds confidence and skills for real-world SDV industry
+              challenges.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sticky Image -->
+      <div class="relative h-full">
+        <div class="sticky top-[9rem]">
+          <!-- Adjust top as needed to sit under header -->
+          <Image
+            src={STEP2_IMG}
+            alt="Blended Learning Preview"
+            class="w-full max-w-xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="horizontal-scroll-section"
+    class="relative bg-white mb-16"
+    style="height: 100vh;"
+  >
+    <!-- Sticky container -->
+    <div class="sticky top-[7rem] xl:top-[15rem] overflow-hidden">
+      <!-- Horizontal scrolling wrapper -->
+      <div
+        id="horizontal-wrapper"
+        class="flex flex-col lg:flex-row h-full transition-transform duration-75 ease-out"
+        style="width: 100vw; transform: translateX(0px);"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-start justify-start px-4 sm:px-8 md:px-16 lg:px-32 xl:px-44 flex-shrink-0 mb-8"
+        >
+          <div class="max-w-2xl">
+            <span class="text-blue-600 text-lg font-medium">Step 3</span>
+            <h2
+              class="text-[#002166] text-3xl md:text-4xl lg:text-5xl font-semibold mt-4 leading-tight"
+            >
+              Connecting SDV ready talent with Internship demands
+            </h2>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div
+          id="cards-container"
+          class="flex flex-col lg:flex-row items-center gap-6 pl-6 pr-6 flex-shrink-0"
+          style="width: auto;"
+        >
+          {
+            step3CardContents.map((card, index) => (
+              <div class="min-w-[350px] flex-shrink-0">
+                <Step3Card
+                  key={index}
+                  number={index + 1}
+                  title={card.title}
+                  content={card.content}
+                  image={card.image}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Progress bar for large screens -->
+      <div
+        class="hidden lg:block relative bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-2 mt-32 bg-gray-200 rounded-full"
+      >
+        <div
+          id="progress-bar"
+          class="h-full bg-blue-600 rounded-full transition-all duration-75 ease-out"
+          style="width: 0%;"
+        >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ValueCreation />
+
+  <section
+    class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-44 py-16 md:py-24 space-y-16"
+  >
+    <!-- Title -->
+    <div class="text-center mb-8">
+      <span class="text-blue-600 font-medium block text-base sm:text-lg">
+        How to Contact Us
+      </span>
+      <h2
+        class="text-[#002166] text-3xl sm:text-4xl md:text-5xl font-bold mt-2"
+      >
+        Your Path to Success is Set
+      </h2>
+    </div>
+
+    <!-- Mini Cards -->
+    <div class="flex flex-col sm:flex-row justify-between gap-6 mb-6">
+      <ContactUsMiniCards
+        icon={CHATBUBBLE}
+        content="Contact us via contact form"
+      />
+      <ContactUsMiniCards icon={ADSCLICK} content="Define your needs" />
+      <ContactUsMiniCards icon={AUTOMATION} content="Implement the solution" />
+    </div>
+
+    <!-- CTA Box -->
+    <div
+      class="relative bg-blue-600 rounded-2xl text-white px-6 sm:px-12 md:px-14 py-12 sm:py-20 overflow-hidden"
+    >
+      <div class="flex flex-col gap-4 relative z-10 max-w-xl">
+        <span class="text-2xl sm:text-3xl md:text-4xl font-semibold">
+          Get in touch with our experts
+        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light text-[#dce7ff]">
+          We can guide you to find the right solution for your needs
+        </span>
+        <a href="/contact-us">
+          <button
+            class="bg-white text-blue-600 w-fit px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition cursor-pointer"
+          >
+            Talk To An Expert
+          </button>
+        </a>
+      </div>
+
+      <!-- Background Logo -->
+      <Image
+        src={LOGOMARK}
+        alt="Logo Mark"
+        class="absolute top-0 right-0 w-1/2 h-full opacity-90 mix-blend-overlay pointer-events-none object-cover"
+      />
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const section = document.getElementById("horizontal-scroll-section");
+      const horizontalWrapper = document.getElementById("horizontal-wrapper");
+      const progressBar = document.getElementById("progress-bar");
+      const cardsContainer = document.getElementById("cards-container");
+
+      let scrollHandler: (() => void) | null = null;
+
+      function setupHorizontalScroll() {
+        if (!section || !horizontalWrapper || !progressBar || !cardsContainer)
+          return;
+
+        const cards = cardsContainer.querySelectorAll(".min-w-\\[350px\\]");
+        if (cards.length === 0) return;
+
+        const viewportWidth = window.innerWidth;
+        const headerSection = horizontalWrapper.querySelector(
+          ".flex.items-start.justify-start"
+        ) as HTMLElement | null;
+        const headerWidth = headerSection
+          ? headerSection.offsetWidth
+          : viewportWidth * 0.5;
+
+        const availableCardSpace = viewportWidth - headerWidth;
+        const cardWidth = 505;
+        const gap = 24;
+        const padding = 48;
+        const totalCardsWidth =
+          cards.length * cardWidth + (cards.length - 1) * gap;
+
+        const maxScroll = Math.max(
+          0,
+          totalCardsWidth + padding - availableCardSpace
+        );
+
+        // ✅ Dynamically set section height for large screens
+        if (section) {
+          const requiredScrollHeight = maxScroll + window.innerHeight;
+          section.style.height = `${requiredScrollHeight}px`;
+        }
+
+        function updateHorizontalScroll() {
+          if (!section || !horizontalWrapper || !progressBar) return;
+          const rect = section.getBoundingClientRect();
+          const sectionHeight = section.offsetHeight;
+          const windowHeight = window.innerHeight;
+
+          let progress = 0;
+
+          if (rect.top <= 0 && rect.bottom >= windowHeight) {
+            progress = Math.abs(rect.top) / (sectionHeight - windowHeight);
+            progress = Math.max(0, Math.min(1, progress));
+          } else if (rect.bottom < windowHeight) {
+            progress = 1;
+          }
+
+          if (progressBar) {
+            progressBar.style.width = `${progress * 100}%`;
+          }
+          const translateX = progress * maxScroll;
+          if (horizontalWrapper) {
+            horizontalWrapper.style.transform = `translateX(-${translateX}px)`;
+          }
+        }
+
+        function onScroll() {
+          requestAnimationFrame(updateHorizontalScroll);
+        }
+
+        scrollHandler = onScroll;
+        window.addEventListener("scroll", scrollHandler);
+        updateHorizontalScroll();
+      }
+
+      function destroyHorizontalScroll() {
+        if (scrollHandler) {
+          window.removeEventListener("scroll", scrollHandler);
+          scrollHandler = null;
+        }
+        if (horizontalWrapper) {
+          horizontalWrapper.style.transform = "translateX(0px)";
+        }
+        if (progressBar) {
+          progressBar.style.width = "0%";
+        }
+
+        // ✅ Reset section height for small screens
+        if (section) {
+          section.style.height = "auto";
+        }
+      }
+
+      function handleResize() {
+        const isLargeScreen = window.innerWidth >= 1024;
+        if (isLargeScreen) {
+          setupHorizontalScroll();
+        } else {
+          destroyHorizontalScroll();
+        }
+      }
+
+      // Init
+      handleResize();
+
+      window.addEventListener("resize", handleResize);
+      window.addEventListener("beforeunload", () => {
+        destroyHorizontalScroll();
+        window.removeEventListener("resize", handleResize);
+      });
+    });
+  </script>
+
+  <style>
+    /* Ensure smooth performance */
+    #horizontal-wrapper {
+      will-change: transform;
+    }
+
+    /* Hide any potential scrollbars */
+    .overflow-hidden {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .overflow-hidden::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</Layout>

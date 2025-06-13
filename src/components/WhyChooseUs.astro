@@ -1,0 +1,429 @@
+---
+import { WHYCHOOSEUS } from "@/consts";
+import Image from "astro/components/Image.astro";
+
+const whyChooseUsData = [
+  {
+    title: "Experience Experts",
+    content:
+      "With decades of consulting experience, we understand the complexities of your SDV transformation. We craft tailored strategies to help you overcome these challenges with precision, ensuring you stay on track every step of the way.",
+  },
+  {
+    title: "Proven Approaches", 
+    content:
+      "With decades of consulting experience, we understand the complexities of your SDV transformation. We craft tailored strategies to help you overcome these challenges with precision, ensuring you stay on track every step of the way.",
+  },
+  {
+    title: "Flexible Implementation",
+    content:
+      "With decades of consulting experience, we understand the complexities of your SDV transformation. We craft tailored strategies to help you overcome these challenges with precision, ensuring you stay on track every step of the way.",
+  },
+  {
+    title: "Building Internal Strength",
+    content:
+      "With decades of consulting experience, we understand the complexities of your SDV transformation. We craft tailored strategies to help you overcome these challenges with precision, ensuring you stay on track every step of the way.",
+  },
+];
+
+// Generate unique ID for this component instance
+const uniqueId = `why-choose-us-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<section
+  class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-56 py-16 md:py-24 space-y-16 bg-[#FFFAED]"
+  data-animation-section={uniqueId}
+>
+  <!-- Title Section -->
+  <div class="flex flex-col items-center gap-4 text-center">
+    <span class="text-[#633a00] text-base sm:text-lg md:text-xl font-semibold">
+      Why Choose Us
+    </span>
+    <h2
+      class="text-[#633a00] text-2xl sm:text-4xl md:text-5xl font-bold max-w-3xl sm:max-w-4xl lg:max-w-5xl"
+    >
+      CreamCollar Shapes Your SDV Journey with Innovation and Agility
+    </h2>
+  </div>
+
+  <!-- Content Section -->
+  <div class="flex flex-col lg:flex-row gap-12 items-center">
+    <!-- Text + Bars -->
+    <div class="w-full lg:w-1/2 space-y-8" data-hover-container={uniqueId}>
+      <div class="flex flex-col gap-4" data-sections-container={uniqueId}>
+        {
+            whyChooseUsData.map((item, index) => (
+              <div class="section flex items-start gap-4 opacity-50 transition-opacity duration-500 cursor-pointer" data-section={index} data-clickable-section={index}>
+                <!-- Progress Bar -->
+                <div class="relative w-1 flex-shrink-0 h-auto" data-bar>
+                  <div class="bg-[#e5cda8] rounded-full w-full" data-bar-bg></div>
+                  <div
+                    class="bg-[#633a00] rounded-full w-full absolute left-0 top-0"
+                    data-progress
+                  ></div>
+                </div>
+  
+                <!-- Text -->
+                <div>
+                  <h3 class="font-bold text-[#633a00] text-lg sm:text-xl md:text-2xl" data-title>
+                    {item.title}
+                  </h3>
+                  <p
+                    class="text-[#502d16] text-base sm:text-lg max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out"
+                    data-description
+                  >
+                    {item.content}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="w-full lg:w-1/2">
+      <Image
+        src={WHYCHOOSEUS}
+        alt="Why Choose Us"
+        class="w-full h-full rounded-2xl object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ uniqueId }}>
+(function() {
+  const SECTION_ID = uniqueId;
+  let animationInstance = null;
+
+  class WhyChooseUsAnimation {
+    constructor(sectionId) {
+      this.sectionId = sectionId;
+      this.current = 0;
+      this.isAnimating = false;
+      this.sections = [];
+      this.interval = null;
+      this.isActive = false;
+      this.isPaused = false;
+      this.hoverContainer = null;
+      this.startTime = 0;
+      this.pausedProgress = 0;
+      this.animationDuration = 7000;
+    }
+
+    init() {
+      this.cleanup();
+      this.findSections();
+      
+      if (this.sections.length > 0) {
+        this.setupSections();
+        this.setupEventListeners();
+        this.startAnimation();
+        this.isActive = true;
+      }
+    }
+
+    findSections() {
+      const container = document.querySelector(`[data-animation-section="${this.sectionId}"]`);
+      if (container) {
+        this.sections = Array.from(container.querySelectorAll('.section'));
+        this.hoverContainer = container.querySelector(`[data-hover-container="${this.sectionId}"]`);
+      }
+    }
+
+    setupEventListeners() {
+      // Hover events for pause/resume
+      if (this.hoverContainer) {
+        this.hoverContainer.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
+        this.hoverContainer.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+      }
+
+      // Click events for manual navigation
+      this.sections.forEach((section, index) => {
+        section.addEventListener('click', this.handleSectionClick.bind(this, index));
+      });
+    }
+
+    handleMouseEnter() {
+      this.pauseAnimation();
+    }
+
+    handleMouseLeave() {
+      this.resumeAnimation();
+    }
+
+    handleSectionClick(index) {
+      this.goToSection(index);
+    }
+
+    setupSections() {
+      this.sections.forEach((sec) => {
+        const title = sec.querySelector('[data-title]');
+        const barBg = sec.querySelector('[data-bar-bg]');
+        const desc = sec.querySelector('[data-description]');
+        const progress = sec.querySelector('[data-progress]');
+        
+        if (title && barBg) {
+          barBg.style.height = `${title.offsetHeight}px`;
+        }
+        
+        if (desc) {
+          desc.classList.add('opacity-0', 'max-h-0');
+          desc.classList.remove('opacity-100', 'max-h-[300px]');
+        }
+        
+        if (progress) {
+          progress.style.height = '0px';
+          
+        }
+        
+        sec.classList.add('opacity-50');
+      });
+
+      if (this.sections[0]) {
+        this.expandSection(this.sections[0]);
+      }
+    }
+
+    startAnimation() {
+      this.stopAnimation();
+      this.startTime = Date.now();
+      this.pausedProgress = 0;
+      
+      this.interval = setInterval(() => {
+        if (this.isAnimating || this.sections.length === 0) return;
+        
+        if (!this.isPaused) {
+          const elapsed = Date.now() - this.startTime + this.pausedProgress;
+          
+          if (elapsed >= this.animationDuration) {
+            this.advanceToNext();
+          }
+        }
+      }, 50);
+    }
+
+    advanceToNext() {
+      if (this.isAnimating) return;
+      
+      this.isAnimating = true;
+      const next = (this.current + 1) % this.sections.length;
+      
+      this.collapseSection(this.sections[this.current])
+        .then(() => this.expandSection(this.sections[next]))
+        .then(() => {
+          this.current = next;
+          this.isAnimating = false;
+          this.resetTimer();
+        })
+        .catch(() => {
+          this.isAnimating = false;
+          this.resetTimer();
+        });
+    }
+
+    resetTimer() {
+      this.startTime = Date.now();
+      this.pausedProgress = 0;
+    }
+
+    pauseAnimation() {
+      if (this.isPaused) return;
+      
+      this.isPaused = true;
+      this.pausedProgress += Date.now() - this.startTime;
+      
+      // Pause the progress bar animation
+      const currentSection = this.sections[this.current];
+      if (currentSection) {
+        const progress = currentSection.querySelector('[data-progress]');
+        if (progress) {
+          const computedStyle = window.getComputedStyle(progress);
+          const currentHeight = computedStyle.height;
+          progress.style.transition = 'none';
+          progress.style.height = currentHeight;
+        }
+      }
+    }
+
+    resumeAnimation() {
+      if (!this.isPaused) return;
+      
+      this.isPaused = false;
+      this.startTime = Date.now();
+      
+      // Resume the progress bar animation
+      const currentSection = this.sections[this.current];
+      if (currentSection) {
+        const progress = currentSection.querySelector('[data-progress]');
+        const barBg = currentSection.querySelector('[data-bar-bg]');
+        
+        if (progress && barBg) {
+          const totalHeight = parseInt(barBg.style.height);
+          const remainingTime = this.animationDuration - this.pausedProgress;
+          
+          if (remainingTime > 0) {
+            progress.style.transition = `height ${remainingTime}ms linear`;
+            progress.style.height = `${totalHeight}px`;
+          }
+        }
+      }
+    }
+
+    goToSection(index) {
+      if (this.isAnimating || index === this.current || index >= this.sections.length) return;
+      
+      this.isAnimating = true;
+      this.isPaused = false; // Ensure we're not paused after click
+      
+      this.collapseSection(this.sections[this.current])
+        .then(() => this.expandSection(this.sections[index]))
+        .then(() => {
+          this.current = index;
+          this.isAnimating = false;
+          this.resetTimer();
+        })
+        .catch(() => {
+          this.isAnimating = false;
+          this.resetTimer();
+        });
+    }
+
+    stopAnimation() {
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
+    }
+
+    cleanup() {
+      this.stopAnimation();
+      this.isActive = false;
+      this.isPaused = false;
+      
+      // Remove event listeners
+      if (this.hoverContainer) {
+        this.hoverContainer.removeEventListener('mouseenter', this.handleMouseEnter.bind(this));
+        this.hoverContainer.removeEventListener('mouseleave', this.handleMouseLeave.bind(this));
+      }
+      
+      this.sections.forEach((section, index) => {
+        section.removeEventListener('click', this.handleSectionClick.bind(this, index));
+      });
+    }
+
+    expandSection(section) {
+      return new Promise((resolve) => {
+        if (!section) {
+          resolve();
+          return;
+        }
+
+        const title = section.querySelector('[data-title]');
+        const desc = section.querySelector('[data-description]');
+        const progress = section.querySelector('[data-progress]');
+        const barBg = section.querySelector('[data-bar-bg]');
+
+        if (!title || !desc || !progress || !barBg) {
+          resolve();
+          return;
+        }
+
+        const titleHeight = title.offsetHeight;
+        const descHeight = desc.scrollHeight;
+        const totalHeight = titleHeight + descHeight;
+
+        section.classList.remove('opacity-50');
+
+        barBg.style.transition = 'height 0.3s ease-in-out';
+        barBg.style.height = `${totalHeight}px`;
+
+        desc.classList.remove('opacity-0', 'max-h-0');
+        desc.classList.add('opacity-100', 'max-h-[300px]');
+
+        progress.style.transition = 'none';
+        progress.style.height = '0px';
+        void progress.offsetHeight;
+
+        progress.style.transition = 'height 7s linear';
+        progress.style.height = `${totalHeight}px`;
+
+        setTimeout(resolve, 300);
+      });
+    }
+
+    collapseSection(section) {
+      return new Promise((resolve) => {
+        if (!section) {
+          resolve();
+          return;
+        }
+
+        const title = section.querySelector('[data-title]');
+        const desc = section.querySelector('[data-description]');
+        const progress = section.querySelector('[data-progress]');
+        const barBg = section.querySelector('[data-bar-bg]');
+
+        if (!title || !desc || !progress || !barBg) {
+          resolve();
+          return;
+        }
+
+        const titleHeight = title.offsetHeight;
+
+        desc.classList.remove('opacity-100', 'max-h-[300px]');
+        desc.classList.add('opacity-0', 'max-h-0');
+
+        progress.style.transition = 'height 0.7s ease-in-out';
+        progress.style.height = `${titleHeight}px`;
+
+        barBg.style.transition = 'height 0.7s ease-in-out';
+        barBg.style.height = `${titleHeight}px`;
+
+        setTimeout(() => {
+          section.classList.add('opacity-50');
+          resolve();
+        }, 700);
+      });
+    }
+  }
+
+  function initializeAnimation() {
+    if (animationInstance) {
+      animationInstance.cleanup();
+    }
+    
+    animationInstance = new WhyChooseUsAnimation(SECTION_ID);
+    
+    // Use setTimeout to ensure DOM is ready
+    setTimeout(() => {
+      animationInstance.init();
+    }, 100);
+  }
+
+  function cleanupAnimation() {
+    if (animationInstance) {
+      animationInstance.cleanup();
+      animationInstance = null;
+    }
+  }
+
+  // Event listeners for different scenarios
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeAnimation);
+  } else {
+    initializeAnimation();
+  }
+
+  // Astro navigation events
+  document.addEventListener('astro:page-load', initializeAnimation);
+  document.addEventListener('astro:after-swap', initializeAnimation);
+  document.addEventListener('astro:before-preparation', cleanupAnimation);
+
+  // Regular navigation cleanup
+  window.addEventListener('beforeunload', cleanupAnimation);
+
+  // Store cleanup function globally for manual cleanup if needed
+  window[`cleanup_${SECTION_ID}`] = cleanupAnimation;
+})();
+</script>

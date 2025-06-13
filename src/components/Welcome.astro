@@ -1,0 +1,187 @@
+---
+import ContactUsMiniCards from "./ContactUsMiniCards.astro";
+import FeatureCard from "./FeatureCard.astro";
+import Hero from "./HeroHome.astro";
+import ProfitInfo from "./ProfitInfo.astro";
+import PromiseCard from "./PromiseCard.astro";
+
+import {
+ 
+  OUROFFERINGS1,
+  OUROFFERINGS2,
+ 
+  AUTOMATION,
+  ADSCLICK,
+  CHATBUBBLE,
+  LOGOMARK,
+} from "@/consts";
+
+import TransformationMeans from "./TransformationMeans.astro";
+import WhyChooseUs from "./WhyChooseUs.astro";
+import Image from "astro/components/Image.astro";
+---
+
+<Hero />
+
+<main>
+  <section class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-56 bg-white mb-24">
+    <div class="flex flex-col gap-16 md:gap-20 mb-6">
+      <!-- Profit Info Cards -->
+      <div
+        class="flex flex-col lg:flex-row items-center justify-between gap-8 w-full mb-6 h-[20rem]"
+      >
+        <ProfitInfo
+          percent="$3.8b"
+          title="Tesla revenue from subscription services"
+          content="Tesla and Chinese OEMs have shown that SDVs drive rapid innovation, real-time updates, and continuous improvement. Legacy OEMs must now adopt a software-first approach to stay competitive.​"
+        />
+        <ProfitInfo
+          percent="$10b to $75b"
+          title="in annual revenue by 2030 could come from Tesla's subscription services"
+          content="Success now depends on embracing agile development, reducing costs, and tapping into new revenue streams like subscriptions, feature-on-demand, and data-driven services. "
+        />
+      </div>
+
+      <!-- Section Text -->
+      <div class="flex flex-col max-w-4xl gap-3 md:gap-4">
+        <span class="text-md sm:text-md md:text-lg text-blue-600"
+          >What we offer</span
+        >
+        <span
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#002166] leading-snug"
+        >
+          We help you <span class="text-blue-600">lead this shift</span
+          >—combining AI tools, transformation strategies, and deep SDV
+          expertise to
+          <span class="text-blue-600">unlock</span> long-term <span>value</span>
+          and
+          <span class="text-blue-600">growth</span>.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-56 bg-[#f6f9ff] py-16 md:py-24 lg:py-32 space-y-16"
+  >
+    <!-- Section Title -->
+    <div class="text-center mb-8">
+      <span class="text-blue-600 font-medium block text-sm sm:text-"
+        >Our Offerings</span
+      >
+      <h2
+        class="text-[#002166] text-3xl sm:text-4xl md:text-5xl font-bold mt-2"
+      >
+        A holistic solution for your SDV needs
+      </h2>
+    </div>
+
+    <!-- First Feature Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      <!-- Mobile: Image first, Desktop: Content first -->
+      <div class="w-full h-full order-1 lg:order-2">
+        <Image
+          src={OUROFFERINGS1}
+          alt="Learning Experience"
+          class="rounded-2xl w-full h-full object-cover min-h-[300px] lg:min-h-[500px]"
+        />
+      </div>
+
+      <div class="flex flex-col justify-between gap-8 order-2 lg:order-1">
+        <FeatureCard
+          title="Capability Consulting"
+          content="We help you build the right teams, restructure for success, and accelerate your journey forward. With our expertise, we'll guide you through product and security compliance, as well as supplier engagement and partnerships, ensuring a smooth and efficient transition."
+          page="/capability-consulting"
+        />
+        <PromiseCard
+          title="Our Promise"
+          content1="Attain a granular, data-informed view of your SDV maturity"
+          content2="Leverage data-driven insights to transform legacy operations into agile, software-centric ecosystems"
+        />
+      </div>
+    </div>
+
+    <!-- Second Feature Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      <!-- Mobile: Image first, Desktop: Image first -->
+      <div class="w-full h-full order-1">
+        <Image
+          src={OUROFFERINGS2}
+          alt="Capability Consulting"
+          class="rounded-2xl w-full h-full object-cover min-h-[300px] lg:min-h-[500px]"
+        />
+      </div>
+      <div class="flex flex-col justify-between gap-8 order-2">
+        <FeatureCard
+          title="Learning Experience Platform"
+          content="Cultivating your next generation of SDV professionals, directly from Academia. Through collaboration with a diverse ecosystem of expert trainers and industry experts."
+          page="/learning-experience-platform"
+        />
+        <PromiseCard
+          title="Our Promise"
+          content1="Role-based learning that equips learners with practical expertise for high-demand SDV roles."
+          content2="Industry experts, providing cutting-edge knowledge and real-world insights."
+          content3="Pool of Pre-vetted, SDV-ready talent for internships and future roles, simplifying the recruitment process"
+        />
+      </div>
+    </div>
+  </section>
+
+  <TransformationMeans />
+
+  <WhyChooseUs />
+
+  <section
+    class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-56 py-16 md:py-24 space-y-16"
+  >
+    <!-- Title -->
+    <div class="text-center mb-8">
+      <span class="text-blue-600 font-medium block text-base sm:text-lg">
+        How to Contact Us
+      </span>
+      <h2
+        class="text-[#002166] text-3xl sm:text-4xl md:text-5xl font-bold mt-2"
+      >
+        Your Path to Success is Set
+      </h2>
+    </div>
+
+    <!-- Mini Cards -->
+    <div class="flex flex-col sm:flex-row justify-between gap-6 mb-6">
+      <ContactUsMiniCards
+        icon={CHATBUBBLE}
+        content="Contact us via contact form"
+      />
+      <ContactUsMiniCards icon={ADSCLICK} content="Define your needs" />
+      <ContactUsMiniCards icon={AUTOMATION} content="Implement the solution" />
+    </div>
+
+    <!-- CTA Box -->
+    <div
+      class="relative bg-blue-600 rounded-2xl text-white px-6 sm:px-12 md:px-14 py-12 sm:py-20 overflow-hidden"
+    >
+      <div class="flex flex-col gap-4 relative z-10 max-w-xl">
+        <span class="text-2xl sm:text-3xl md:text-4xl font-semibold">
+          Get in touch with our experts
+        </span>
+        <span class="text-sm sm:text-base md:text-lg font-light text-[#dce7ff]">
+          We can guide you to find the right solution for your needs
+        </span>
+        <a href="/contact-us">
+          <button
+            class="bg-white text-blue-600 w-fit px-6 py-2 rounded-full font-medium cursor-pointer hover:bg-gray-100 transition"
+          >
+            Talk To An Expert
+          </button>
+        </a>
+      </div>
+
+      <!-- Background Logo -->
+      <Image
+        src={LOGOMARK}
+        alt="Logo Mark"
+        class="absolute top-0 right-0 w-1/2 h-full opacity-90 mix-blend-overlay pointer-events-none object-cover"
+      />
+    </div>
+  </section>
+</main>

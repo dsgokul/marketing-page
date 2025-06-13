@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Creamcollar</title>
+  </head>
+  <body>
+    <Header />
+    <!-- <main id="swup" class="transition-fade"> -->
+    <slot />
+    <!-- </main> -->
+
+    <Footer />
+
+    <script>
+      import Swup from "swup";
+
+      function updateActiveLinks() {
+        const currentPath = window.location.pathname;
+        const links = document.querySelectorAll(".header-link");
+
+        links.forEach((link) => {
+          const href = link.getAttribute("data-href");
+          const isActive =
+            href === currentPath ||
+            (href === "/" && currentPath === "/") ||
+            (href !== "/" && currentPath.startsWith(href + "/"));
+
+          if (isActive) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const swup = new Swup();
+
+        // Update active links on initial load
+        updateActiveLinks();
+
+        // Update active links after each Swup navigation
+        swup.hooks.on("page:view", updateActiveLinks);
+      });
+    </script>
+  </body>
+</html>

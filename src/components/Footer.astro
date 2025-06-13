@@ -1,0 +1,47 @@
+---
+import Image from "astro/components/Image.astro";
+import { LOGO, LINKEDIN, TWITTER } from "../consts";
+---
+
+<section class="relative bottom-0">
+  <div
+    class="bg-[#f6f8f9] w-full py-6 px-6 md:px-16 lg:px-32 xl:px-60 flex flex-wrap items-center justify-between gap-4 text-left md:text-center"
+  >
+    <!-- Left: Logo + Socials -->
+    <div
+      class="flex flex-col sm:flex-row sm:gap-4 items-start md:items-center justify-center sm:justify-start w-full sm:w-auto"
+    >
+      <Image src={LOGO} alt="CreamCollar Logo" class="h-max object-fit" />
+      <div class="flex gap-2 mt-8 sm:mt-0">
+        <a href="https://www.linkedin.com/company/creamcollar" target="_blank"
+          ><Image src={LINKEDIN} alt="Linkedin Logo" class="h-8 w-8" /></a
+        >
+        <!-- <Image src={TWITTER} alt="Twitter Logo" class="h-6 w-6" /> -->
+      </div>
+    </div>
+
+    <!-- Center: Links -->
+    <div
+      class="flex flex-col md:flex-row justify-center gap-6 font-normal text-lg w-full sm:w-auto"
+    >
+      <a href="/">Home</a>
+      <a href="/capability-consulting">Capability Consulting</a>
+      <a href="/learning-experience-platform">Learning Experience Platform</a>
+      <a href="/about">About Us</a>
+      <a href="#">Terms</a>
+    </div>
+
+    <!-- Right: Copyright -->
+    <div
+      class="text-gray-400 text-base w-full sm:w-auto md:text-center text-left"
+    >
+      &copy; 2025 CreamCollar
+    </div>
+  </div>
+  <a href="/contact-us"
+    ><button
+      class="block md:hidden w-full bg-blue-600 text-white text-center py-4 cursor-pointer"
+      >Talk To An Expert</button
+    ></a
+  >
+</section>

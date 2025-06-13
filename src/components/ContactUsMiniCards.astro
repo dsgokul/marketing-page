@@ -1,0 +1,15 @@
+---
+const { icon, content } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div
+  class="bg-[#f6f9ff] rounded-2xl w-full flex flex-col justify-end gap-6 p-6 h-56"
+>
+  <Image src={icon} alt="Automation" class="w-10 h-10" />
+  <p
+    class="text-xl sm:text-xl lg:text-3xl max-w-48 font-semibold text-[#002166]"
+  >
+    {content}
+  </p>
+</div>

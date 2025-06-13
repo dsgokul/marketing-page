@@ -1,0 +1,181 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { LOGO, MENU, CLOSE } from "../consts";
+import DropdownHeaderLink from "./DropdownHeaderLink.astro";
+import Image from "astro/components/Image.astro";
+---
+
+<header
+  class="w-full border-b-[#E0EAFF] border-2 fixed z-50 bg-white drop-shadow-xs"
+>
+  <nav class="flex items-center justify-between px-6 md:px-12 lg:px-24 py-4">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <Image src={LOGO} alt="CreamCollar Logo" class="object-fit" />
+      <div
+        class="inline-flex items-center px-4 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-full shine-effect"
+      >
+        SSR
+      </div>
+    </a>
+
+    <!-- Hamburger Button -->
+    <button
+      id="menu-toggle"
+      class="md:hidden focus:outline-none cursor-pointer"
+    >
+      <Image src={MENU} alt="MENU" class="object-fit" id="hamburger-icon" />
+      <Image
+        src={CLOSE}
+        alt="CLOSE"
+        class="hidden object-fit"
+        id="close-icon"
+      />
+    </button>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <div class="internal-links flex gap-6">
+        <HeaderLink href="/">Home</HeaderLink>
+        <DropdownHeaderLink
+          options={[
+            { label: "Capability Consulting", value: "/capability-consulting" },
+            {
+              label: "Learning Experience Platform",
+              value: "/learning-experience-platform",
+            },
+          ]}
+        >
+          Our Offerings
+        </DropdownHeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
+    </div>
+
+    <div
+      class="hidden sm:hidden md:block lg:block xl:block 2xl:block talk-to-expert"
+    >
+      <a href="/contact-us"
+        ><button
+          class="bg-blue-600 px-4 py-2 rounded-full text-white w-fit self-center cursor-pointer"
+          >Talk To An Expert</button
+        ></a
+      >
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden h-screen overflow-hidden transition-all duration-500 ease-in-out bg-white px-6 max-h-0"
+  >
+    <div class="flex flex-col items-start gap-4 py-4 border-t">
+      <HeaderLink href="/">Home</HeaderLink>
+      <DropdownHeaderLink
+        options={[
+          { label: "Capability Consulting", value: "/capability-consulting" },
+          {
+            label: "Learning Experience Platform",
+            value: "/learning-experience-platform",
+          },
+        ]}
+      >
+        Our Offerings
+      </DropdownHeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <!-- <button
+        class="bg-blue-600 px-4 py-2 rounded-full text-white w-fit self-center"
+        >Talk To An Expert</button
+      > -->
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    let open = false;
+
+    function closeMenu() {
+      if (menu) {
+        menu.style.maxHeight = "0px";
+      }
+      open = false;
+      if (hamburgerIcon) hamburgerIcon.classList.remove("hidden");
+      if (closeIcon) closeIcon.classList.add("hidden");
+    }
+
+    if (toggle && menu) {
+      toggle.addEventListener("click", () => {
+        open = !open;
+        menu.style.maxHeight = open ? "100vh" : "0px";
+
+        // Toggle icons
+        if (open) {
+          if (hamburgerIcon) hamburgerIcon.classList.add("hidden");
+          if (closeIcon) closeIcon.classList.remove("hidden");
+        } else {
+          if (hamburgerIcon) hamburgerIcon.classList.remove("hidden");
+          if (closeIcon) closeIcon.classList.add("hidden");
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          closeMenu();
+        }
+      });
+
+      // Close menu on mobile link click
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+  </script>
+
+  <style>
+  .shine-effect {
+    /* Required for positioning the shine element */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine-effect::after {
+    content: "";
+    /* The shine element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* The shine gradient */
+    background: linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+
+    /* Move the shine element to the left to start */
+    transform: translateX(-100%);
+
+    /* Define the animation */
+    animation: shine-animation 3s ease-in-out infinite;
+  }
+
+  /* Keyframes for the animation */
+  @keyframes shine-animation {
+    0% {
+      transform: translateX(-100%);
+    }
+    20% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
+</header>

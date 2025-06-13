@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import { HERO } from "../consts";
+const { customStyles } = Astro.props;
+---
+
+<section class={`relative  -top-10   pt-24 ${customStyles}`}>
+  <Image
+    src={HERO}
+    alt="Hero Image"
+    class="w-full h-[40rem] md:h-auto max-h-[100vh] object-cover"
+  />
+
+  <!-- Overlay Text Container -->
+  <div
+    class="absolute bottom-0 left-0 w-full h-max z-10 flex flex-col justify-end items-center text-center"
+    style="background: linear-gradient(180deg, rgba(0, 33, 102, 0) 0%, #002166 100%);"
+  >
+    <div class="md:wrapper pb-10 lg:pb-20">
+      <h1
+        class="text-white text-lg sm:text-lg md:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+      >
+        We help build AI-powered SDV organisations
+      </h1>
+
+      <p
+        class="text-white text-sm sm:text-sm md:text-xl max-w-4xl px-2 sm:px-6 mb-6"
+      >
+        Accelerating your SDV transformation by integrating AI-driven tools,
+        agile processes, and cutting-edge skill set talent to build a future
+        where software redefines mobility and innovation knows no bounds.
+      </p>
+
+      <div class="talk-to-expert">
+        <a href="/contact-us"
+          ><button
+            class="bg-blue-600 px-6 py-2 rounded-full text-white cursor-pointer hover:bg-blue-700 transition"
+          >
+            Talk To An Expert
+          </button></a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function applyInverseScale() {
+    const scale = window.devicePixelRatio || 1;
+    const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
+    if (wrapper) {
+      wrapper.style.transform = `scale(${1 / scale})`;
+    }
+  }
+  window.addEventListener("resize", applyInverseScale);
+  applyInverseScale();
+</script>

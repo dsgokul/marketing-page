@@ -1,0 +1,136 @@
+---
+// DropdownHeaderLink.astro - With Tailwind CSS
+type Option = {
+  value: string;
+  label: string;
+};
+
+interface Props {
+  options?: Option[];
+}
+
+const { options = [] } = Astro.props;
+const dropdownId = `dropdown-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class="relative inline-block md:self-center" data-dropdown={dropdownId}>
+  <button
+    type="button"
+    class="dropdown-button flex items-center gap-2 bg-transparent border-none text-xl text-[#4C5967] font-medium cursor-pointer py-2 transition-colors duration-200 hover:text-blue-600"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <span class="dropdown-text">
+      <slot />
+    </span>
+    <svg
+      class="w-4 h-4 transition-transform duration-200 dropdown-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <path
+        d="M4 6L8 10L12 6"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <div
+    class="dropdown-content transition-all duration-300 ease-in-out overflow-hidden
+         md:absolute md:top-[4.3rem] md:left-0 md:min-w-max md:border-2 md:border-[#E0EAFF] md:rounded-lg md:shadow-lg
+         bg-white z-[1000]
+         max-h-0 md:max-h-none opacity-0 md:opacity-100 invisible md:visible md:transform md:translate-y-0"
+    role="menu"
+    aria-hidden="true"
+  >
+    {
+      options.map((option) => (
+        <a
+          href={option.value}
+          class="block px-4 py-3 text-gray-700 no-underline transition-colors duration-200 hover:bg-gray-50 hover:text-blue-600 first:rounded-t-lg last:rounded-b-lg"
+          role="menuitem"
+        >
+          {option.label}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  /* Default (mobile): closed state */
+  .dropdown-content {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.2s ease;
+  }
+
+  /* Mobile open state */
+  [data-open="true"] .dropdown-content {
+    max-height: 500px; /* or something tall enough */
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Desktop overrides */
+  @media (min-width: 768px) {
+    .dropdown-content {
+      position: absolute;
+      top: 4.3rem;
+      left: 0;
+      min-width: max-content;
+      border: 2px solid #e0eaff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-height: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5rem);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    [data-open="true"] .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll("[data-dropdown]");
+
+    dropdowns.forEach((dropdown) => {
+      const trigger = dropdown.querySelector("button");
+
+      trigger?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.getAttribute("data-open") === "true";
+
+        // Close all other dropdowns
+        dropdowns.forEach((d) => d.setAttribute("data-open", "false"));
+
+        // Toggle current dropdown
+        dropdown.setAttribute("data-open", (!isOpen).toString());
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", () => {
+      dropdowns.forEach((dropdown) => {
+        dropdown.setAttribute("data-open", "false");
+      });
+    });
+  });
+</script>

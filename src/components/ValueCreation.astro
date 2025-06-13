@@ -1,0 +1,417 @@
+---
+import { JOBSEARCH, USERROLES, ROCKET, INFRA, BOARD } from "@/consts";
+import Image from "astro/components/Image.astro";
+---
+
+<section
+  class="px-4 sm:px-4 md:px-16 lg:px-32 xl:px-44 bg-[#fffaed] py-8 md:py-32"
+>
+  <div class="flex flex-col gap-2 items-center justify-center">
+    <span class="text-[#633a00] font-medium text-xl">Value Creation</span>
+    <div class="flex flex-col items-center gap-2">
+      <span
+        class="text-[#633a00] text-2xl md:text-5xl font-semibold max-w-2xl text-center mb-6 md:m-0"
+      >
+        Driving Impact for
+      </span>
+
+      <!-- Desktop Tab Navigation -->
+      <div
+        class="hidden md:block text-[#633a00] text-5xl font-semibold text-center tracking-wider"
+      >
+        <button
+          class="tab-button transition-colors duration-300 hover:opacity-80 cursor-pointer"
+          data-tab="recruiters"
+        >
+          Recruiters
+        </button>,
+        <button
+          class="tab-button transition-colors duration-300 hover:opacity-80 cursor-pointer"
+          data-tab="students"
+        >
+          Students
+        </button> &
+        <button
+          class="tab-button transition-colors duration-300 hover:opacity-80 cursor-pointer"
+          data-tab="trainers"
+        >
+          Trainers
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop Cards Layout -->
+  <div class="hidden md:flex items-center justify-center gap-10 p-10">
+    <!-- Card 1 -->
+    <div
+      class="flex flex-col gap-4 max-w-[30rem] bg-[#ffeab4] p-7 rounded-2xl h-[22rem]"
+    >
+      <div class="flex flex-col gap-4">
+        <Image id="card1-icon" src={JOBSEARCH} alt="Icon" class="w-10 h-10" />
+        <h3 id="card1-title" class="text-[#633a00] font-semibold text-2xl mb-2">
+          Consistent, Trend-Aligned Talent Supply Chain
+        </h3>
+      </div>
+      <div>
+        <p
+          id="card1-description"
+          class="text-md leading-relaxed text-[#79551c]"
+        >
+          We deliver skilled talent updated to industry trends, ensuring
+          companies get reliable, job-ready professionals.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div
+      class="flex flex-col gap-4 max-w-[30rem] bg-[#ffeab4] p-7 rounded-2xl h-[22rem]"
+    >
+      <div class="flex flex-col gap-4">
+        <Image id="card2-icon" src={USERROLES} alt="Icon" class="w-10 h-10" />
+        <h3 id="card2-title" class="text-[#633a00] font-semibold text-2xl mb-2">
+          Centralized Campus Recruitment for Diverse Roles
+        </h3>
+      </div>
+      <div>
+        <p
+          id="card2-description"
+          class="text-md leading-relaxed text-[#79551c]"
+        >
+          Our platform centralizes campus recruitment for diverse roles,
+          streamlining hiring and helping companies find talent faster.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Accordion Layout -->
+  <div class="md:hidden flex flex-col gap-4">
+    <!-- Recruiters Accordion -->
+    <div class="accordion-item rounded-2xl overflow-hidden">
+      <button
+        class="accordion-header w-full flex items-center justify-between text-left cursor-pointer"
+        data-accordion="recruiters"
+      >
+        <span class="text-[#633a00] text-2xl font-semibold">Recruiters</span>
+        <div
+          class="accordion-icon text-[#633a00] text-2xl transition-transform duration-300"
+        >
+          +
+        </div>
+      </button>
+      <div
+        class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div class="space-y-6 pt-2">
+          <!-- Card 1 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl">
+            <div class="flex flex-col gap-4">
+              <Image src={JOBSEARCH} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Consistent, Trend-Aligned Talent Supply Chain
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              We deliver skilled talent updated to industry trends, ensuring
+              companies get reliable, job-ready professionals.
+            </p>
+          </div>
+          <!-- Card 2 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl">
+            <div class="flex flex-col gap-4">
+              <Image src={USERROLES} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Centralized Campus Recruitment for Diverse Roles
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              Our platform centralizes campus recruitment for diverse roles,
+              streamlining hiring and helping companies find talent faster.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students Accordion -->
+    <div class="accordion-item rounded-2xl overflow-hidden">
+      <button
+        class="accordion-header cursor-pointer w-full flex items-center justify-between text-left"
+        data-accordion="students"
+      >
+        <span class="text-[#633a00] text-2xl font-semibold">Students</span>
+        <div
+          class="accordion-icon text-[#633a00] text-2xl transition-transform duration-300"
+        >
+          +
+        </div>
+      </button>
+      <div
+        class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div class="space-y-6 pt-2">
+          <!-- Card 1 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl">
+            <div class="flex flex-col gap-4">
+              <Image src={ROCKET} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Skill Development & Career Readiness
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              Comprehensive training programs that bridge the gap between
+              academic learning and industry requirements, preparing students
+              for successful careers.
+            </p>
+          </div>
+          <!-- Card 2 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl">
+            <div class="flex flex-col gap-4">
+              <Image src={INFRA} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Direct Industry Connections
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              Connect directly with top employers and get access to exclusive
+              job opportunities tailored to your skills and career aspirations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trainers Accordion -->
+    <div class="accordion-item rounded-2xl overflow-hidden">
+      <button
+        class="accordion-header cursor-pointer w-full flex items-center justify-between text-left"
+        data-accordion="trainers"
+      >
+        <span class="text-[#633a00] text-2xl font-semibold">Trainers</span>
+        <div
+          class="accordion-icon text-[#633a00] text-2xl transition-transform duration-300"
+        >
+          +
+        </div>
+      </button>
+      <div
+        class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div class="space-y-6 pt-2">
+          <!-- Card 1 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl">
+            <div class="flex flex-col gap-4">
+              <Image src={BOARD} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Advanced Training Resources & Tools
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              Access cutting-edge training materials, assessment tools, and
+              curriculum designed to deliver industry-relevant education.
+            </p>
+          </div>
+          <!-- Card 2 Content -->
+          <div class="flex flex-col gap-4 bg-[#ffeab4] p-4 rounded-2xl h-max">
+            <div class="flex flex-col gap-4">
+              <Image src={INFRA} alt="Icon" class="w-8 h-8" />
+              <h4 class="text-[#633a00] font-semibold text-lg">
+                Performance Analytics & Insights
+              </h4>
+            </div>
+            <p class="text-sm leading-relaxed text-[#79551c]">
+              Track student progress with detailed analytics and insights to
+              optimize training effectiveness and outcomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { JOBSEARCH, USERROLES, ROCKET, INFRA, BOARD } from "@/consts";
+
+  // Content data for each tab (for desktop)
+  const tabContent = {
+    recruiters: {
+      card1: {
+        icon: JOBSEARCH.src,
+        title: "Consistent, Trend-Aligned Talent Supply Chain",
+        description:
+          "We deliver skilled talent updated to industry trends, ensuring companies get reliable, job-ready professionals.",
+      },
+      card2: {
+        icon: USERROLES.src,
+        title: "Centralized Campus Recruitment for Diverse Roles",
+        description:
+          "Our platform centralizes campus recruitment for diverse roles, streamlining hiring and helping companies find talent faster.",
+      },
+    },
+    students: {
+      card1: {
+        icon: ROCKET.src,
+        title: "Skill Development & Career Readiness",
+        description:
+          "Comprehensive training programs that bridge the gap between academic learning and industry requirements, preparing students for successful careers.",
+      },
+      card2: {
+        icon: INFRA.src,
+        title: "Direct Industry Connections",
+        description:
+          "Connect directly with top employers and get access to exclusive job opportunities tailored to your skills and career aspirations.",
+      },
+    },
+    trainers: {
+      card1: {
+        icon: BOARD.src,
+        title: "Advanced Training Resources & Tools",
+        description:
+          "Access cutting-edge training materials, assessment tools, and curriculum designed to deliver industry-relevant education.",
+      },
+      card2: {
+        icon: INFRA.src,
+        title: "Performance Analytics & Insights",
+        description:
+          "Track student progress with detailed analytics and insights to optimize training effectiveness and outcomes.",
+      },
+    },
+  };
+
+  // Desktop tab functionality
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const card1Icon = document.getElementById("card1-icon");
+  const card1Title = document.getElementById("card1-title");
+  const card1Description = document.getElementById("card1-description");
+  const card2Icon = document.getElementById("card2-icon");
+  const card2Title = document.getElementById("card2-title");
+  const card2Description = document.getElementById("card2-description");
+
+  // Function to update active tab styling
+  function updateActiveTab(activeTab: "recruiters" | "students" | "trainers") {
+    tabButtons.forEach((button) => {
+      const tabType = button.getAttribute("data-tab");
+      if (tabType === activeTab) {
+        button.classList.remove("text-[#CDA66F]");
+        button.classList.add("text-[#633a00]");
+      } else {
+        button.classList.remove("text-[#633a00]");
+        button.classList.add("text-[#CDA66F]");
+      }
+    });
+  }
+
+  // Function to update card content
+  function updateCards(tabType: "recruiters" | "students" | "trainers") {
+    const content = tabContent[tabType];
+
+    // Update card 1
+    if (card1Icon) (card1Icon as HTMLImageElement).src = content.card1.icon;
+    if (card1Title) card1Title.textContent = content.card1.title;
+    if (card1Description)
+      card1Description.textContent = content.card1.description;
+
+    // Update card 2
+    if (card2Icon) (card2Icon as HTMLImageElement).src = content.card2.icon;
+    if (card2Title) card2Title.textContent = content.card2.title;
+    if (card2Description)
+      card2Description.textContent = content.card2.description;
+  }
+
+  // Add click event listeners to tab buttons (desktop)
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tabType = button.getAttribute("data-tab");
+      if (
+        tabType === "recruiters" ||
+        tabType === "students" ||
+        tabType === "trainers"
+      ) {
+        updateActiveTab(tabType);
+        updateCards(tabType);
+      }
+    });
+  });
+
+  // Set initial active tab (recruiters)
+  updateActiveTab("recruiters");
+
+  // Mobile accordion functionality
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const accordionType = header.getAttribute("data-accordion");
+      const accordionItem = header.closest(".accordion-item");
+      const accordionContent =
+        accordionItem?.querySelector(".accordion-content");
+      const accordionIcon = header.querySelector(".accordion-icon");
+
+      // Close all other accordions
+      accordionHeaders.forEach((otherHeader) => {
+        if (otherHeader !== header) {
+          const otherAccordionItem = otherHeader.closest(".accordion-item");
+          const otherAccordionContent =
+            otherAccordionItem?.querySelector(".accordion-content");
+          const otherAccordionIcon =
+            otherHeader.querySelector(".accordion-icon");
+
+          if (otherAccordionContent) {
+            (otherAccordionContent as HTMLElement).style.maxHeight = "0px";
+          }
+          if (otherAccordionIcon) {
+            otherAccordionIcon.textContent = "+";
+            (otherAccordionIcon as HTMLElement).style.transform =
+              "rotate(0deg)";
+          }
+        }
+      });
+
+      // Toggle current accordion
+      if (accordionContent) {
+        const isOpen =
+          (accordionContent as HTMLElement).style.maxHeight !== "0px" &&
+          (accordionContent as HTMLElement).style.maxHeight !== "";
+
+        if (isOpen) {
+          (accordionContent as HTMLElement).style.maxHeight = "0px";
+          if (accordionIcon) {
+            accordionIcon.textContent = "+";
+            (accordionIcon as HTMLElement).style.transform = "rotate(0deg)";
+          }
+        } else {
+          (accordionContent as HTMLElement).style.maxHeight =
+            (accordionContent as HTMLElement).scrollHeight + "px";
+          if (accordionIcon) {
+            accordionIcon.textContent = "−";
+            (accordionIcon as HTMLElement).style.transform = "rotate(180deg)";
+          }
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .tab-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+  }
+
+  .accordion-header {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font: inherit;
+  }
+
+  .accordion-content {
+    transition: max-height 0.3s ease-in-out;
+  }
+</style>

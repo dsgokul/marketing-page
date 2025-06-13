@@ -1,0 +1,319 @@
+---
+const sdvBenefitsData = [
+  {
+    number: 1,
+    title: "Stay Ahead of the Competition",
+    content:
+      "By diving into SDVs, you’ll be able to innovate faster, roll out updates regularly, and offer top-notch digital experiences. This keeps you ahead of the curve, ensuring that your brand stays relevant in a rapidly changing world.",
+  },
+  {
+    number: 2,
+    title: "Get to Market Faster",
+    content:
+      "Speed up development cycles by leveraging SDV platforms that streamline the update and deployment process.",
+  },
+  {
+    number: 3,
+    title: "Unlock New Revenue Opportunities",
+    content:
+      "Monetize features through subscriptions, upgrades, and tailored services enabled by software-defined vehicles.",
+  },
+  {
+    number: 4,
+    title: "Delight Your Customers",
+    content:
+      "Deliver seamless, personalized, and up-to-date experiences that exceed customer expectations.",
+  },
+  {
+    number: 5,
+    title: "Future-Proof Your Business",
+    content:
+      "Adapt to changing technologies and market demands with a flexible software-driven foundation.",
+  },
+  {
+    number: 6,
+    title: "Attract and Keep Great Talent",
+    content:
+      "Create a cutting-edge work environment that appeals to top tech and engineering talent.",
+  },
+];
+---
+
+<section
+  class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-56 bg-[#f6f9ff] py-12 h-full mb-24"
+>
+  <!-- Begin Sticky Scroll Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
+    <!-- Left Sticky Image -->
+    <div class="relative h-full">
+      <div class="sticky top-[9rem]">
+        <div class="flex flex-col gap-4">
+          <span class="text-blue-600 text-base sm:text-lg font-semibold"
+            >The Benefits</span
+          >
+          <h2
+            class="text-[#002166] text-2xl sm:text-3xl md:text-4xl font-semibold"
+          >
+            What SDV Transformation Means for You
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div id="accordion" class="flex flex-col gap-8">
+      <!-- Item 1 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="1">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-[#002166]"
+              >1</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-[#002166]"
+              >Stay Ahead of the Competition</span
+            >
+          </div>
+          <span
+            id="icon-1"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-[#002166]"
+            >-</span
+          >
+        </div>
+        <div
+          id="content-1"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-[1000px] opacity-100"
+        >
+          By diving into SDVs, you'll be able to innovate faster, roll out
+          updates regularly, and offer top-notch digital experiences. This keeps
+          you ahead of the curve, ensuring that your brand stays relevant in a
+          rapidly changing world.
+        </div>
+      </button>
+
+      <!-- Item 2 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="2">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-gray-400"
+              >2</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-gray-400"
+              >Get to Market Faster</span
+            >
+          </div>
+          <span
+            id="icon-2"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-gray-400"
+            >+</span
+          >
+        </div>
+        <div
+          id="content-2"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0"
+        >
+          Speed up development cycles by leveraging SDV platforms that
+          streamline the update and deployment process.
+        </div>
+      </button>
+
+      <!-- Item 3 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="3">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-gray-400"
+              >3</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-gray-400"
+              >Unlock New Revenue Opportunities</span
+            >
+          </div>
+          <span
+            id="icon-3"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-gray-400"
+            >+</span
+          >
+        </div>
+        <div
+          id="content-3"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0"
+        >
+          Monetize features through subscriptions, upgrades, and tailored
+          services enabled by software-defined vehicles.
+        </div>
+      </button>
+
+      <!-- Item 4 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-gray-400"
+              >4</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-gray-400"
+              >Delight Your Customers</span
+            >
+          </div>
+          <span
+            id="icon-4"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-gray-400"
+            >+</span
+          >
+        </div>
+        <div
+          id="content-4"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0"
+        >
+          Deliver seamless, personalized, and up-to-date experiences that exceed
+          customer expectations.
+        </div>
+      </button>
+
+      <!-- Item 5 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="5">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-gray-400"
+              >5</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-gray-400"
+              >Future-Proof Your Business</span
+            >
+          </div>
+          <span
+            id="icon-5"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-gray-400"
+            >+</span
+          >
+        </div>
+        <div
+          id="content-5"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0"
+        >
+          Adapt to changing technologies and market demands with a flexible
+          software-driven foundation.
+        </div>
+      </button>
+
+      <!-- Item 6 -->
+      <button class="w-full text-left cursor-pointer" data-accordion-id="6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <span
+              class="accordion-number text-2xl sm:text-3xl font-bold text-gray-400"
+              >6</span
+            >
+            <span
+              class="accordion-title font-semibold text-base sm:text-lg text-gray-400"
+              >Attract and Keep Great Talent</span
+            >
+          </div>
+          <span
+            id="icon-6"
+            class="text-xl sm:text-2xl font-bold transition-transform duration-300 text-gray-400"
+            >+</span
+          >
+        </div>
+        <div
+          id="content-6"
+          class="mt-2 text-gray-600 overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0"
+        >
+          Create a cutting-edge work environment that appeals to top tech and
+          engineering talent.
+        </div>
+      </button>
+
+      <hr class="hidden border-2 rotate-90 border-[#fff5dd] w-[60rem]" />
+    </div>
+  </div>
+
+  <script>
+    let currentOpen = 1;
+    let isExpanded = false;
+
+    async function toggleAccordion(id: number) {
+      if (currentOpen === id || isExpanded) return;
+      isExpanded = true;
+
+      // Find elements for the currently open item
+      const prevContent = document.getElementById(`content-${currentOpen}`);
+      const prevIcon = document.getElementById(`icon-${currentOpen}`);
+      const prevButton = document.querySelector(
+        `[data-accordion-id="${currentOpen}"]`
+      );
+      const prevNumber = prevButton?.querySelector(".accordion-number");
+      const prevTitle = prevButton?.querySelector(".accordion-title");
+
+      // Close previous item
+      if (prevContent) {
+        prevContent.classList.remove("max-h-[1000px]", "opacity-100");
+        prevContent.classList.add("max-h-0", "opacity-0");
+      }
+      if (prevIcon) {
+        prevIcon.textContent = "+";
+        prevIcon.classList.remove("text-[#002166]");
+        prevIcon.classList.add("text-gray-400");
+      }
+      if (prevNumber) {
+        prevNumber.classList.remove("text-[#002166]");
+        prevNumber.classList.add("text-gray-400");
+      }
+      if (prevTitle) {
+        prevTitle.classList.remove("text-[#002166]");
+        prevTitle.classList.add("text-gray-400");
+      }
+
+      // Wait for close animation
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
+      // Find elements for the new item
+      const newContent = document.getElementById(`content-${id}`);
+      const newIcon = document.getElementById(`icon-${id}`);
+      const newButton = document.querySelector(`[data-accordion-id="${id}"]`);
+      const newNumber = newButton?.querySelector(".accordion-number");
+      const newTitle = newButton?.querySelector(".accordion-title");
+
+      // Open new item
+      if (newContent) {
+        newContent.classList.remove("max-h-0", "opacity-0");
+        newContent.classList.add("max-h-[1000px]", "opacity-100");
+      }
+      if (newIcon) {
+        newIcon.textContent = "-";
+        newIcon.classList.add("text-[#002166]");
+        newIcon.classList.remove("text-gray-400");
+      }
+      if (newNumber) {
+        newNumber.classList.add("text-[#002166]");
+        newNumber.classList.remove("text-gray-400");
+      }
+      if (newTitle) {
+        newTitle.classList.add("text-[#002166]");
+        newTitle.classList.remove("text-gray-400");
+      }
+
+      currentOpen = id;
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      isExpanded = false;
+    }
+
+    // Add event listeners
+    document.querySelectorAll("[data-accordion-id]").forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        if (!target) return;
+        const id = Number(target.dataset.accordionId);
+        toggleAccordion(id);
+      });
+    });
+  </script>
+</section>
